@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Form Validation Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+    form {
+      background: white;
+      padding: 20px;
+      width: 300px;
+      border-radius: 5px;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin: 8px 0;
+    }
+    button {
+      padding: 8px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Student Registration Form</h2>
+
+  <form onsubmit="return validateForm()">
+    
+    <label>Name:</label>
+    <input type="text" id="name" oninput="checkName()">
+
+    <label>Email:</label>
+    <input type="text" id="email" oninput="checkEmail()">
+
+    <label>Password:</label>
+    <input type="password" id="password">
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    function checkName() {
+      let name = document.getElementById("name").value;
+      if (name.length < 3) {
+        alert("Name must be at least 3 characters");
+      }
+    }
+
+    function checkEmail() {
+      let email = document.getElementById("email").value;
+      if (!email.includes("@")) {
+        alert("Please enter a valid email");
+      }
+    }
+
+    function validateForm() {
+      let name = document.getElementById("name").value;
+      let email = document.getElementById("email").value;
+      let password = document.getElementById("password").value;
+
+      if (name === "" || email === "" || password === "") {
+        alert("All fields are required");
+        return false;
+      }
+
+      if (password.length < 6) {
+        alert("Password must be at least 6 characters");
+        return false;
+      }
+
+      alert("Form submitted successfully!");
+      return true;
+    }
+  </script>
+
+</body>
+</html>

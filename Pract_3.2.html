@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Conditionals and Loops Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f8;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+    }
+    .box {
+      background: #ffffff;
+      padding: 15px;
+      margin: 15px auto;
+      border-radius: 6px;
+      max-width: 600px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    button {
+      padding: 10px 15px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .output {
+      margin-top: 10px;
+      background: #eef2f3;
+      padding: 10px;
+      border-radius: 4px;
+      min-height: 40px;
+      white-space: pre-line;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>JavaScript Conditionals & Loops</h1>
+
+  <div class="box">
+    <h3>1. Conditional Statement (if / else)</h3>
+    <button onclick="checkNumber()">Check Number</button>
+    <div class="output" id="conditionOutput"></div>
+  </div>
+
+  <div class="box">
+    <h3>2. For Loop</h3>
+    <button onclick="runForLoop()">Run For Loop</button>
+    <div class="output" id="forOutput"></div>
+  </div>
+
+  <div class="box">
+    <h3>3. While Loop</h3>
+    <button onclick="runWhileLoop()">Run While Loop</button>
+    <div class="output" id="whileOutput"></div>
+  </div>
+
+  <div class="box">
+    <h3>4. Do-While Loop</h3>
+    <button onclick="runDoWhileLoop()">Run Do-While Loop</button>
+    <div class="output" id="doWhileOutput"></div>
+  </div>
+
+  <script>
+  
+    function checkNumber() {
+      let num = 7;
+      let result;
+
+      if (num > 0) {
+        result = "Number is Positive";
+      } else if (num < 0) {
+        result = "Number is Negative";
+      } else {
+        result = "Number is Zero";
+      }
+
+      document.getElementById("conditionOutput").textContent = result;
+    }
+
+    function runForLoop() {
+      let output = "";
+      for (let i = 1; i <= 5; i++) {
+        output += "For Loop Count: " + i + "\n";
+      }
+      document.getElementById("forOutput").textContent = output;
+    }
+    function runWhileLoop() {
+      let count = 1;
+      let output = "";
+
+      while (count <= 5) {
+        output += "While Loop Count: " + count + "\n";
+        count++;
+      }
+
+      document.getElementById("whileOutput").textContent = output;
+    }
+
+    function runDoWhileLoop() {
+      let num = 1;
+      let output = "";
+
+      do {
+        output += "Do-While Count: " + num + "\n";
+        num++;
+      } while (num <= 5);
+
+      document.getElementById("doWhileOutput").textContent = output;
+    }
+  </script>
+
+</body>
+</html>

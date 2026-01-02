@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JavaScript Functions and Scope</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f8;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+    }
+    .box {
+      background: #ffffff;
+      padding: 15px;
+      margin: 15px auto;
+      border-radius: 6px;
+      max-width: 700px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    button {
+      padding: 10px 15px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .output {
+      margin-top: 10px;
+      background: #eef2f3;
+      padding: 10px;
+      border-radius: 4px;
+      white-space: pre-line;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>User-Defined Functions & Scope in JavaScript</h1>
+
+  <div class="box">
+    <h3>1. User-Defined Function</h3>
+    <button onclick="showSum()">Call Function</button>
+    <div class="output" id="functionOutput"></div>
+  </div>
+
+  <div class="box">
+    <h3>2. Scope Demonstration (var, let, const)</h3>
+    <button onclick="scopeDemo()">Run Scope Demo</button>
+    <div class="output" id="scopeOutput"></div>
+  </div>
+
+  <script>
+
+    function addNumbers(a, b) {
+      return a + b;
+    }
+
+    function showSum() {
+      let result = addNumbers(5, 10);
+      document.getElementById("functionOutput").textContent =
+        "Sum of 5 and 10 is: " + result;
+    }
+
+    function scopeDemo() {
+      let output = "";
+
+      if (true) {
+        var x = 10;  
+        let y = 20;   
+        const z = 30;
+
+        output += "Inside block:\n";
+        output += "var x = " + x + "\n";
+        output += "let y = " + y + "\n";
+        output += "const z = " + z + "\n\n";
+      }
+
+      output += "Outside block:\n";
+      output += "var x = " + x + " (Accessible)\n";
+      output += "let y = Not Accessible (Block Scoped)\n";
+      output += "const z = Not Accessible (Block Scoped)\n";
+
+      document.getElementById("scopeOutput").textContent = output;
+    }
+  </script>
+
+</body>
+</html>
